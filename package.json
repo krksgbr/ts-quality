@@ -1,0 +1,61 @@
+{
+  "name": "@krksgbr/oxlint-rules",
+  "version": "0.1.2",
+  "description": "Oxlint JS plugins and shareable presets: vendored generic anti-slop rules, Effect anti-slop rules, TypeScript ratchets, and syntactic quality-policy checks.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krksgbr/ts-quality.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "src/anti-slop/LICENSE",
+    "src/anti-slop/README.md",
+    "src/anti-slop/vendor/eslint-stylistic/LICENSE",
+    "src/anti-slop/vendor/eslint-stylistic/UPSTREAM.md"
+  ],
+  "exports": {
+    "./anti-slop": {
+      "types": "./dist/anti-slop/index.d.ts",
+      "default": "./dist/anti-slop/index.js"
+    },
+    "./effect": {
+      "types": "./dist/anti-slop/effect/index.d.ts",
+      "default": "./dist/anti-slop/effect/index.js"
+    },
+    "./policy": {
+      "types": "./dist/policy/index.d.ts",
+      "default": "./dist/policy/index.js"
+    },
+    "./presets": {
+      "types": "./dist/presets.d.ts",
+      "default": "./dist/presets.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "check": "npm run build && node --test tests/*.test.mjs",
+    "smoke:consumer": "npm run build && node tests/consumer-smoke.mjs"
+  },
+  "dependencies": {
+    "@oxlint/plugins": "1.79.0"
+  },
+  "peerDependencies": {
+    "oxlint": "1.79.0"
+  },
+  "devDependencies": {
+    "oxlint": "1.79.0",
+    "typescript": "^6.0.3"
+  }
+}
