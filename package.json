@@ -1,8 +1,18 @@
 {
   "name": "@krksgbr/oxlint-rules",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Oxlint JS plugins and shareable presets: vendored generic anti-slop rules, Effect anti-slop rules, TypeScript ratchets, and syntactic quality-policy checks.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krksgbr/ts-quality.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "type": "module",
   "files": [
     "dist",
@@ -10,6 +20,7 @@
     "README.md",
     "THIRD_PARTY_NOTICES.md",
     "src/anti-slop/LICENSE",
+    "src/anti-slop/README.md",
     "src/anti-slop/vendor/eslint-stylistic/LICENSE",
     "src/anti-slop/vendor/eslint-stylistic/UPSTREAM.md"
   ],

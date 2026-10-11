@@ -8,7 +8,7 @@ Copied files:
 - `packages/eslint-plugin/rules/padding-line-between-statements/types.d.ts` → `padding-line-options.d.ts`
 - Root `LICENSE`, retained verbatim. Both OpenJS Foundation and ESLint Stylistic notices apply.
 
-The rule is MIT-licensed. Keep `LICENSE` with every redistributed copy, including skill assets. No Stylistic, ESLint, TypeScript-ESLint, or additional parser runtime dependency is required.
+The rule is MIT-licensed. Keep `LICENSE` with every redistributed copy, including npm packages. No Stylistic, ESLint, TypeScript-ESLint, or additional parser runtime dependency is required.
 
 ## Local adaptations
 
@@ -23,6 +23,6 @@ The opinionated policy lives outside this directory in `../../rules/require-read
 
 ## Updating and verification
 
-Fetch an explicit upstream revision, compare the original rule and types against this revision, and port relevant fixes while retaining the adapters above. Update this record and preserve the license. Run `pnpm check` and `pnpm sync:skill-assets` as required by repository guidance.
+Fetch an explicit upstream revision, compare the original rule and types against this revision, and port relevant fixes while retaining the adapters above. Update this record and preserve the license. From the repository root, run `npm run check` and `npm run smoke:consumer`.
 
-Focused Oxlint RuleTester cases live in `../../rules/require-readable-spacing.test.ts`; they test exact fixes, JSDoc/trailing comments, same-line statements, semicolon-free code, TypeScript exports/overloads, Effect-style generators, and upstream removal behavior. `../../rules/require-readable-spacing-cli.test.ts` verifies the exported plugin through the native Oxlint CLI on multiple files, including rejection, autofix, and repeated-fix stability. The complete upstream JS/TS test suites have not been ported; this is focused compatibility evidence, not a claim of full upstream conformance.
+`tests/anti-slop.test.mjs` checks that the built generic and Effect plugins load and emit selected diagnostics through the Oxlint CLI. `tests/consumer-smoke.mjs` installs the packed package in an independent project and checks presets, overrides, and suppressions. These are integration smoke tests, not a focused spacing/autofix regression suite. The upstream JS/TS test suites have not been ported; full upstream conformance is not established.

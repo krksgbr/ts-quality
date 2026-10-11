@@ -14,13 +14,7 @@ check:
 smoke:
   npm run smoke:consumer
 
-# Build, bump to <version>, and pack a versioned tarball into release/.
-# Consumers pin release/krksgbr-oxlint-rules-<version>.tgz; bump on every change.
-release version:
-  #!/usr/bin/env bash
-  set -euo pipefail
-  npm pkg set version="{{version}}"
-  npm run build
+# Pack the current version locally for inspection; releases publish via GitHub Actions.
+pack:
   mkdir -p release
   npm pack --pack-destination release
-  echo "packed: release/krksgbr-oxlint-rules-{{version}}.tgz"
